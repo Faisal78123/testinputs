@@ -1,20 +1,16 @@
 on: 
-  push:
+  workflow_dispatch:
     inputs:
-      environment:
-        description: 'Define env name'     
+      logLevel:
+        description: 'Log level'     
         required: true
-        default: 'prod'
-      branch:
-        description: 'Define branch name'     
-        required: true
-        default: 'master'
-
-
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'  
 jobs:
   printInputs:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo "Env: ${{ github.event.inputs.environment }}" 
-        echo "Branch: ${{ github.event.inputs.branch }}"
+        echo "Log level: ${{ github.event.inputs.logLevel }}"
+        echo "Tags: ${{ github.event.inputs.tags }}" 
