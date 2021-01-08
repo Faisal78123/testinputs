@@ -1,20 +1,23 @@
 name: test
+
 on:
   push:
-    inputs:
-      variable1:
-        description: 'this is variable1'
-        required: true
-        default: 'default-variable1'
-      variable2:
-        description: 'this is variable2'
-        required: true
-        default: 'default-variable2'
+
+inputs:
+  variable1:
+    description: 'this is variable1'
+    required: true
+    default: 'default-variable1'
+  variable2:
+    description: 'this is variable2'
+    required: true
+    default: 'default-variable2'
+
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Initial Setup
-        run: echo "${{ env.INPUT_VARIABLE1 }}"
+    test:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+        - name: Initial Setup
+          run: ./myvalues.sh
