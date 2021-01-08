@@ -1,71 +1,25 @@
-name: terragrunt-validation-security-format-document-plan-apply
+name: test
 on:
-workflow_dispatch:
-inputs:
-customer:
-description: 'Name of the customer deploying to (must match the name used for the customer when the runner was created'
-required: true
-account_id:
-description: 'AWS Account to deploy to'
-required: true
-sts:
-description: 'sts role to assume in the account to deploy to (must trust the build runner role in the management account)'
-required: false
-default: 'dcs-aws-cicd-iam-role'
-region:
-description: 'AWS Region to deploy to'
-required: true
-bucket_prefix:
-description: 'S3 Bucket prefix for Terraform State'
-required: false
-default: 'atos-dcs-aws-tfstate-'
-dynamodb_table:
-description: 'DynamoDB Table name for Terraform Statelock'
-required: false
-default: 'atos-dcs-aws-tfstatelock'
-mgmt_account_id:
-description: 'AWS Management Account to deploy from (where runner, TF state bucket etc. resides)'
-required: true
-mgmt_sts:
-description: 'AWS Management Account sts'
-required: false
-default: 'dcs-aws-cicd-iam-role'
-mgmt_aws_region:
-description: 'Management AWS Region to deploy from (where runner, TF state bucket etc. resides)'
-required: true
-defaults:
-run:
-shell: bash
-env:
-AWS_DEFAULT_REGION: eu-west-1
-AWS_SECRET_NAME: ${{ secrets.CICD_SSH_KEY_NAME }}
-ACTIONS_REPO: GLB-CES-PublicCloud/aws-templates-actions
-ACTIONS_LOCATION: terraform/bootstrap/*
-GIT_PAT: ${{ secrets.ORG_REPOSITORY_PAT }}
-CONTAINER_USERNAME: ${{ secrets.CONTAINER_REGISTRY_USER }}
-CONTAINER_PASSWORD: ${{ secrets.CONTAINER_REGISTRY_PAT }}
-RUNNER_PAT: ${{ secrets.ORG_RUNNER_PAT }}
+  workflow_dispatch:
+    inputs:
+      variable1:
+        description: 'this is variable1'
+        required: true
+        default: 'default-variable1'
+      variable2:
+        description: 'this is variable2'
+        required: true
+        default: 'default-variable2'
+      variable3:
+        description: 'this is variable3'
+        required: false
+        default: 'default-variable3'
 
 jobs:
-
-validate:
-runs-on: [self-hosted, linux, aws, docker, '${{ github.event.inputs.customer }}']
-container:
-image: ghcr.io/glb-ces-publiccloud/aws-container-terraform:latest
-credentials:
-username: ${{ env.CONTAINER_USERNAME }}
-password: ${{ env.CONTAINER_PASSWORD }}
-steps:
-- name: Checkout
-uses: actions/checkout@v2
-- name: Initial Setup
-run: .github/workflows/initialise.sh
-env:
-GIT_PAT: ${{ secrets.ORG_REPOSITORY_PAT }}
-GIT_ORG: GLB-CES-PublicCloud
-- name: Terraform Init
-run: terragrunt init
-- name: Terraform Validate
-run: terragrunt validate
-- name: TFLint
-run: tflint --module --deep
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Initial Setup
+        run: .github/workflows/myvalues.sh
