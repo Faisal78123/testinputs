@@ -17,4 +17,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Initial Setup
-        run: echo $INPUT_VARIABLE1
+        run: echo ${{ env.INPUT_VARIABLE1 }}
