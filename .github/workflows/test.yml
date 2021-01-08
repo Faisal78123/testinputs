@@ -1,6 +1,6 @@
 name: test
 on:
-  workflow_dispatch:
+  push:
     inputs:
       variable1:
         description: 'this is variable1'
@@ -17,4 +17,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Initial Setup
-        run: echo ${{ env.INPUT_VARIABLE1 }}
+        run: echo "${{ env.INPUT_VARIABLE1 }}"
