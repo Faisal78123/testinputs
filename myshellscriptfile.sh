@@ -1,4 +1,3 @@
 #!/bin/bash
-echo "::set-env name=VERSION::19.2.5"
-echo version $VERSION
-echo env.version ${{env.VERSION }}
+echo "{variable1}={variable-1-value}" >> $GITHUB_ENV
+echo variable1: $variable1
