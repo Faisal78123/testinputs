@@ -1,1 +1,1 @@
-core.getInput(INPUT_VARIABLE1)
+echo $INPUT_VARIABLE1
