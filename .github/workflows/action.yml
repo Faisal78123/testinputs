@@ -4,15 +4,15 @@ on:
   push:
     
 
+
 inputs:
-  variable1:
-    description: 'this is variable1'
+  file-path:  # id of input
+    description: "Path to test script"
     required: true
-    default: 'default-variable1'
-  variable2:
-    description: 'this is variable2'
-    required: true
-    default: 'default-variable2'
+    default: 'test-file.js'
+outputs:
+  results-file: # id of output
+    description: "Path to results file"
 
 jobs:
     test:
