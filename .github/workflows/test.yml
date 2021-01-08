@@ -22,4 +22,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Initial Setup
-        run: bash myvalues.sh
+        run: echo $INPUT_VARIABLE1
