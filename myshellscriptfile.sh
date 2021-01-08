@@ -1,2 +1,2 @@
-echo "Log level: ${{ github.event.inputs.logLevel }}"
-echo "Tags: ${{ github.event.inputs.tags }}"
+echo "variable1: ${{ github.event.inputs.variable1 }}"
+echo "variable2: ${{ github.event.inputs.variable2 }}"
