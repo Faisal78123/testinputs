@@ -1,1 +1,1 @@
-echo $INPUT_VARIABLE1
+echo $env:INPUT_VARIABLE1
