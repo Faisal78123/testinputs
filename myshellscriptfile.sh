@@ -1,2 +1,4 @@
-echo "variable1: ${{ github.event.inputs.variable1 }}"
-echo "variable2: ${{ github.event.inputs.variable2 }}"
+#!/bin/bash
+echo "::set-env name=VERSION::19.2.5"
+echo version $VERSION
+echo env.version ${{env.VERSION }}
