@@ -1,0 +1,17 @@
+export TERRAGRUNT_AUTO_RETRY=true
+export TF_VAR_account_id=$INPUT_ACCOUNT_ID
+export TF_VAR_sts=$INPUT_STS
+export TF_VAR_region=$INPUT_REGION
+export TF_VAR_bucket_prefix=$INPUT_BUCKET_PREFIX
+export TF_VAR_dynamodb_table=$INPUT_DYNAMODB_TABLE
+export TF_VAR_mgmt_account_id=$INPUT_MGMT_ACCOUNT_ID
+export TF_VAR_mgmt_sts=$INPUT_MGMT_STS
+export TF_VAR_mgmt_aws_region=$INPUT_MGMT_AWS_REGION
+echo $TF_VAR_account_id
+echo $TF_VAR_sts
+echo $TF_VAR_region
+echo $TF_VAR_bucket_prefix
+echo $TF_VAR_dynamodb_table
+echo $TF_VAR_mgmt_account_id
+echo $TF_VAR_mgmt_sts
+echo $TF_VAR_mgmt_aws_region
