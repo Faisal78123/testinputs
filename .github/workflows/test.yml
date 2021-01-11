@@ -11,6 +11,7 @@ on:
         default: 'variable2-value'
 jobs:
   Show-Results:
+    environment: testenvironment
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
