@@ -8,7 +8,7 @@ on:
       variable2:
         description: 'variable2-description'     
         required: true
-        default: 'variable2-value'
+        default: 'variable2-value-xxxxx'
 jobs:
   Show-Results:
     environment: testenvironment
