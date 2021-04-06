@@ -1,6 +1,14 @@
 # testinputs
 
+fdv
+f
 
+fr
+gf
+g
+rt
+g
+tr
 
 dfjknvfdkvfdnvfdvdfvd
 fd
@@ -13,4 +21,12 @@ f
 f
 
 f
+
+
+df
+vfd
+grg
+ter
+grg
+rgrt
 f
